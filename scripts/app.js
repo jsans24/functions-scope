@@ -16,3 +16,14 @@ console.log(checkPalindrome("Radar"));
 console.log(checkPalindrome("Borscht"));
 console.log(checkPalindrome("racecar"));
 
+// ----------- Digit Sum
+function sumDigits(num) {
+    let split = num.toString().split('')
+    let sum = 0
+    for (i = 0; i < split.length; i++) {
+        let digit = split[i]
+        sum += Number(digit)
+    }
+    return sum
+}
+console.log(sumDigits(42));
