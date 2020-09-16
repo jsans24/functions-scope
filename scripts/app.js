@@ -60,7 +60,7 @@ console.log(checkPrime(89));
 console.log(6 % 3);
 
 function printPrimes(b){
-    let list = [''];
+    let list = [];
     for (j = 0; j <= b; j++) {
         if (checkPrime(j)) {
             list.push(j);
@@ -70,3 +70,19 @@ function printPrimes(b){
 }
 
 printPrimes(97)
+
+// ----------- Hungry For More
+// 2. Write a function insertDash that accepts a number as a parameter and returns a string with a dash inserted between any consecutive odd numbers. There should not be a dash at the end, it goes only between numbers.
+function insertDash(a) {
+    let split = a.toString().split('');
+    console.log(split);
+    for (i = 0; i < split.length; i++) {
+        if (split[i - 1] % 2 === 1 && split[i] % 2 === 1) {
+            split.splice(i, 0, '-');
+        } 
+    }
+    return split;
+}
+
+console.log(insertDash(454793));
+
