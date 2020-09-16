@@ -98,9 +98,29 @@ function reverseString(str) {
 console.log(reverseString('Yellow'));
 
 // 4. Make your palindrome function from problem two above work regardless of spacing (or capitalization). So, for example, "Sit on a potato pan Otis" or "Bird rib" would pass the test.
+// function checkPalindrome(a) {
+//     let caps = a.toUpperCase();
+//     let split = [...caps];
+//     for (i = 0; i < split.length; i++) {
+//         if (split[i] === ' ') split.splice(i, 1)
+//     }
+//     let clean = split.join('');
+//     let reverse = split.reverse().join('');
+//     console.log(clean);
+//     console.log(reverse);
+//     return clean === reverse;
+// }
+// console.log(checkPalindrome("Radar"));
+// console.log(checkPalindrome("Borscht"));
+// console.log(checkPalindrome("racecar"));
+// console.log(checkPalindrome("Sit on a potato pan Otis"));
+// console.log(checkPalindrome("Bird rib"));
+
+// 5. Make your palindrome function work even if the string contains punctuation.  So: "Sit on a potato pan, Otis!!!" or "A man, a plan, a canal: Panama." or "Cigar? Toss it in a can! It is so tragic." would pass the test.
 function checkPalindrome(a) {
     let caps = a.toUpperCase();
-    let split = [...caps];
+    let noPunct = caps.replace(/[^\w\s]|_/g, "");
+    let split = [...noPunct];
     for (i = 0; i < split.length; i++) {
         if (split[i] === ' ') split.splice(i, 1)
     }
@@ -115,4 +135,6 @@ console.log(checkPalindrome("Borscht"));
 console.log(checkPalindrome("racecar"));
 console.log(checkPalindrome("Sit on a potato pan Otis"));
 console.log(checkPalindrome("Bird rib"));
+console.log(checkPalindrome("A man, a plan, a canal: Panama."));
+console.log(checkPalindrome("Sit on a potato pan, Otis!!!"));
 
