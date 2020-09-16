@@ -4,17 +4,17 @@
 // 3. The implications of a functions ability to return a value are that a function becomes a powerful tool to alter code and make things happen.
 
 // ----------- Palindrome Again
-function checkPalindrome(a) {
-    let caps = a.toUpperCase();
-    let split = [...caps];
-    let reverse = split.reverse().join('');
-    console.log(caps);
-    console.log(reverse);
-    return caps === reverse;
-}
-console.log(checkPalindrome("Radar"));
-console.log(checkPalindrome("Borscht"));
-console.log(checkPalindrome("racecar"));
+// function checkPalindrome(a) {
+//     let caps = a.toUpperCase();
+//     let split = [...caps];
+//     let reverse = split.reverse().join('');
+//     console.log(caps);
+//     console.log(reverse);
+//     return caps === reverse;
+// }
+// console.log(checkPalindrome("Radar"));
+// console.log(checkPalindrome("Borscht"));
+// console.log(checkPalindrome("racecar"));
 
 // ----------- Digit Sum
 function sumDigits(num) {
@@ -87,7 +87,6 @@ function insertDash(a) {
 console.log(insertDash(454793));
 
 // 3. Write a function `reverseString` that takes a string as a parameter and returns that string with the letters reversed without using `.split()`, `.reverse()`, or `.join()`.
-
 function reverseString(str) {
     let newStr = '';
     for (i = str.length - 1; i >= 0; i--) {
@@ -97,4 +96,23 @@ function reverseString(str) {
 }
 
 console.log(reverseString('Yellow'));
+
+// 4. Make your palindrome function from problem two above work regardless of spacing (or capitalization). So, for example, "Sit on a potato pan Otis" or "Bird rib" would pass the test.
+function checkPalindrome(a) {
+    let caps = a.toUpperCase();
+    let split = [...caps];
+    for (i = 0; i < split.length; i++) {
+        if (split[i] === ' ') split.splice(i, 1)
+    }
+    let clean = split.join('');
+    let reverse = split.reverse().join('');
+    console.log(clean);
+    console.log(reverse);
+    return clean === reverse;
+}
+console.log(checkPalindrome("Radar"));
+console.log(checkPalindrome("Borscht"));
+console.log(checkPalindrome("racecar"));
+console.log(checkPalindrome("Sit on a potato pan Otis"));
+console.log(checkPalindrome("Bird rib"));
 
