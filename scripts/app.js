@@ -86,3 +86,15 @@ function insertDash(a) {
 
 console.log(insertDash(454793));
 
+// 3. Write a function `reverseString` that takes a string as a parameter and returns that string with the letters reversed without using `.split()`, `.reverse()`, or `.join()`.
+
+function reverseString(str) {
+    let newStr = '';
+    for (i = str.length - 1; i >= 0; i--) {
+        newStr += str[i];
+    }
+    return newStr;
+}
+
+console.log(reverseString('Yellow'));
+
