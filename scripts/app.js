@@ -138,3 +138,18 @@ console.log(checkPalindrome("Bird rib"));
 console.log(checkPalindrome("A man, a plan, a canal: Panama."));
 console.log(checkPalindrome("Sit on a potato pan, Otis!!!"));
 
+// 6. Make a "word palindrome" function that returns true if the words in a phrase are the same backwards and forwards.  It should not care about spacing, capitalization, or punctuation.  For example the following string would pass the test: 
+
+//     "Son, I am able," she said. "Though you scare me, watch!" said I, "Beloved," I said, "watch me scare you!" Though, said she: "able am I, son."
+function checkWordPalindrome(a) {
+    let caps = a.toUpperCase();
+    let noPunct = caps.replace(/[^\w\s]|_/g, "");
+    let split = noPunct.split(' ');
+    console.log(split)
+    for (i = 0; i < split.length; i++) {
+        if (split[i] === split[split.length - i - 1]) return true;
+        else return false;
+    }
+}
+
+console.log(checkWordPalindrome("\"Son, I am able,\" she said. \"Though you scare me, watch!\" said I, \"Beloved,\" I said, \"watch me scare you!\" Though, said she: \"able am I, son.\""));
